@@ -2,7 +2,7 @@ import { Center, Grid, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroller";
 import Loading from "@/components/Loading/Loading";
-import { getAllCharacters } from "@/api/home/getAllCharacters";
+import { getAllCharacters } from "@/api/characters/getAllCharacters";
 import CardGeneric from "../Card/Card";
 
 const GET_ALL_CHARACTERS_KEY = "GET_ALL_CHARACTERS_KEY";
