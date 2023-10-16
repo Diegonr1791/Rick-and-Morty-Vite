@@ -1,7 +1,6 @@
 import Card from "../Card/Card";
 import { Box, Flex } from "@chakra-ui/react";
-import { MockData } from "../../constants/data";
-import getAllCharacters from "../../api/home/getAllCharacters";
+import { getAllCharacters } from "@/api/home/getAllCharacters";
 import { useQuery } from "@tanstack/react-query";
 
 const GET_ALL_CHARACTERS_KEY = "GET_ALL_CHARACTERS_KEY";
@@ -16,8 +15,8 @@ const CardContainer = () => {
   return (
     <Box>
       <Flex gap={10} flexWrap="wrap" p=" 20px 10px 0px 45px">
-        {MockData &&
-          MockData?.map(
+        {AllCharactestData?.results &&
+          AllCharactestData?.results?.map(
             ({ id, name, status, species, gender, origin, image }) => {
               return (
                 <Card
@@ -34,7 +33,7 @@ const CardContainer = () => {
             }
           )}
       </Flex>
-      {/* <Paginate allChar={MockData} /> */}
+      {/* <Paginate allChar={AllCharactestData?.results} /> */}
     </Box>
   );
 };
