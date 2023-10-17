@@ -1,6 +1,6 @@
 import Card from "../Card/Card";
 import { Box, Flex } from "@chakra-ui/react";
-import { getAllCharacters } from "@/api/home/getAllCharacters";
+import { getAllCharacters } from "@/api/characters/getAllCharacters";
 import { useQuery } from "@tanstack/react-query";
 
 const GET_ALL_CHARACTERS_KEY = "GET_ALL_CHARACTERS_KEY";
