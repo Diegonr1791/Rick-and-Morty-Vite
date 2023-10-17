@@ -1,4 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import { NextUIProvider } from "@nextui-org/react";
 import "./App.css";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -9,9 +10,11 @@ function App() {
 
   return (
     <ChakraProvider>
-      <QueryClientProvider client={queryClient}>
-        <Router />
-      </QueryClientProvider>
+      <NextUIProvider>
+        <QueryClientProvider client={queryClient}>
+          <Router />
+        </QueryClientProvider>
+      </NextUIProvider>
     </ChakraProvider>
   );
 }
