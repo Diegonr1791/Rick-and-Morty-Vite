@@ -1,9 +1,5 @@
-import { Flex } from "@chakra-ui/react";
-import { Suspense, lazy } from "react";
+import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Header from "@/components/Header/Header";
-import { originalColors } from "@/theme/palette";
-import Loading from "@/components/Loading/Loading";
 
 const HomePage = lazy(() => import("@/pages/Home/Home"));
 const CharactersPage = lazy(() => import("@/pages/Characters/Characters"));
@@ -14,23 +10,15 @@ const CharactersPage = lazy(() => import("@/pages/Characters/Characters"));
 const Router = () => {
   return (
     <BrowserRouter basename="">
-      <Flex
-        flexDir="column"
-        flex="1"
-        minH="100vh"
-        bgColor={originalColors.darkgrey}
-      >
-        <Header />
-        <Flex flex="1">
-          <Suspense fallback={<Loading />}>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/home" index element={<HomePage />} />
-              <Route path="/characters" element={<CharactersPage />} />
-            </Routes>
-          </Suspense>
-        </Flex>
-      </Flex>
+      <div className="flex flex-col h-screen">
+        {/* <Suspense fallback={<Loading />}> */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/home" index element={<HomePage />} />
+          <Route path="/characters" element={<CharactersPage />} />
+        </Routes>
+        {/* </Suspense> */}
+      </div>
     </BrowserRouter>
   );
 };
