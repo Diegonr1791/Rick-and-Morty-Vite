@@ -1,9 +1,13 @@
-import CardContainer from "@/components/Cardcontainer/CardContainer";
+import CardCharacter from "@/components/Card/CardCharacter";
 
 const Home = () => {
   return (
-    <div>
-      <CardContainer />
+    <div className="flex">
+      <CardCharacter
+        name="morty"
+        id={1}
+        image="https://images-ext-1.discordapp.net/external/SQeLuvgmpP6Ivbkk4DMhwoG_HSCnMC57_MwfiGpmEec/https/rickandmortyapi.com/api/character/avatar/1.jpeg"
+      />
     </div>
   );
 };
