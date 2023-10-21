@@ -2,7 +2,7 @@ import CardCharacter from "@/components/Card/CardCharacter";
 
 const Home = () => {
   return (
-    <div className="flex">
+    <div className="flex p-4">
       <CardCharacter
         name="morty"
         id={1}
