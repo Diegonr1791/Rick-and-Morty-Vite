@@ -46,3 +46,23 @@ export enum Status {
   Dead = "Dead",
   Unknown = "unknown",
 }
+
+export interface CharacterDetailsAPI {
+  id: number;
+  name: string;
+  status: string;
+  species: string;
+  type: string;
+  gender: string;
+  origin: LocationDetail;
+  location: LocationDetail;
+  image: string;
+  episode: string[];
+  url: string;
+  created: Date;
+}
+
+export interface LocationDetail {
+  name: string;
+  url: string;
+}

@@ -10,7 +10,6 @@ export const getAllCharacters = async ({
 }: {
   pageParam: number;
 }) => {
-  console.log(pageParam);
   const url = `${RICK_AND_MORTY_API}/character/?page=${pageParam}`;
 
   /*    Object.keys(filters).forEach((property) => {
