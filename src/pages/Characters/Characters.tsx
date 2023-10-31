@@ -1,6 +1,8 @@
 import { getAllCharacters } from "@/api/characters/getAllCharacters";
-import CardCharacter from "@/components/Card/CardCharacter";
+import Loading from "@/components/Loading/Loading";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import InfiniteScroll from "react-infinite-scroller";
+import CharacterContainer from "./components/CharacterContainer";
 
 const GET_ALL_CHARACTERS_KEY = "GET_ALL_CHARACTERS_KEY";
 
@@ -16,8 +18,8 @@ CharacterProps */) => {
   const {
     data: charactersData,
     isLoading,
-    /* hasNextPage = false,
-    fetchNextPage, */
+    hasNextPage = false,
+    fetchNextPage,
   } = useInfiniteQuery({
     queryKey: [GET_ALL_CHARACTERS_KEY],
     queryFn: getAllCharacters,
@@ -27,23 +29,23 @@ CharacterProps */) => {
   const characters =
     charactersData?.pages?.flatMap((page) => page.results) ?? [];
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <Loading size="lg" color="secondary" />;
 
   return (
-    <div className="flex w-full justify-center bg-red-500">
-      <h1 className="text-5xl uppercase text-red-600">Characters</h1>
-
-      <CardCharacter
-        id={characters[0].id}
-        name={characters[0].name}
-        image={characters[0].image}
-      />
-      <CardCharacter
-        id={characters[1].id}
-        name={characters[1].name}
-        image={characters[1].image}
-      />
-    </div>
+    <InfiniteScroll
+      pageStart={1}
+      hasMore={hasNextPage}
+      loader={<Loading size="lg" color="secondary" key={0} />}
+      loadMore={() => {
+        fetchNextPage();
+      }}
+    >
+      <div className="flex w-full flex-wrap gap-3 justify-center">
+        {characters.map((character, index) => {
+          return <CharacterContainer key={index} character={character} />;
+        })}
+      </div>
+    </InfiniteScroll>
   );
 };
 
