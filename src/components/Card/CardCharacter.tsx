@@ -4,25 +4,41 @@ type CardCharacterProps = {
   id: number;
   name: string;
   image: string;
+  onClick?: () => void;
 };
 
-export const CardCharacter = ({ id, name, image }: CardCharacterProps) => {
+export const CardCharacter = ({
+  id,
+  name,
+  image,
+  onClick,
+}: CardCharacterProps) => {
   return (
     <Card
-      isFooterBlurred
-      radius="lg"
-      className="border-none"
+      className="group w-[300px] h-[310px] bg-white/90 rounded-md p-3 hover:shadow-md hover:shadow-violet-400/60 hover:rotate-[2deg] transition-all duration-1000 "
       onClick={() => console.log(id)}
     >
       <Image
-        alt="Woman listing to music"
-        className="object-cover"
-        height={200}
+        alt={`image for card}-${name}`}
+        className="object-cover rounded-none border-x-3 border-b-3  border-gray-900/90 group-hover:rotate-[-2deg]"
         src={image}
-        width={300}
       />
-      <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-1 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 ">
-        <p className="text-tiny text-white/80">{name}</p>
+      <CardFooter className=" group h-12 w-full absolute rounded-md bottom-0 right-0 z-10 p-0 [perspective:1000px] group-hover:rotate-[-2deg]">
+        <div className="relative h-full w-full transition-all delay-75 duration-1000  [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] ">
+          <div className="absolute inset-0">
+            <p className=" text-center text-lg text-black border-3 border-gray-900 bg-white rounded-md mx-5 line-clamp-1 ">
+              {name}
+            </p>
+          </div>
+          <div className=" absolute inset-0 h-full w-full [transform:rotateY(180deg)] [backface-visibility:hidden]">
+            <p
+              onClick={onClick}
+              className="bg-purple-700 text-center text-lg text-white border-3 border-gray-900  rounded-md mx-5 hover:cursor-pointer"
+            >
+              View details
+            </p>
+          </div>
+        </div>
       </CardFooter>
     </Card>
   );
