@@ -20,6 +20,7 @@ const Menu = () => {
     setIndexActive(index);
     setIsMenuOpen(false);
   };
+
   return (
     <Navbar
       isBordered

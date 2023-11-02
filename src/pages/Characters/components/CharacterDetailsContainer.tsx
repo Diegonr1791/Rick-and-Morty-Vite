@@ -15,18 +15,18 @@ const CharacterDetailsContainer = ({
 }) => {
   const status: Status = characterDetails.status as Status;
   return (
-    <div className="flex w-full max-h-[820px]">
+    <div className="flex w-full max-h-[820px] text-xs">
       <div className="flex w-full h-full bg-black p-[5px]">
-        <div className=" w-full h-full flex-row bg-slate-200 rounded-lg px-8 pb-14 pt-6 items-center md:items-baseline">
+        <div className=" w-full h-full flex-row bg-slate-200 rounded-lg px-2 sm:px-8 pb-14 pt-6 items-center md:items-baseline">
           <div className="flex justify-end">
-            <p className=" text-black text-2xl md:text-3xl  font-semibold">
+            <p className=" text-black text-sm sm:text-md sm:text-2xl md:text-3xl  font-semibold">
               Character details
             </p>
           </div>
           <div className="flex w-full h-full flex-col">
             <div className="flex w-full bg-black p-[5px] pr-0 rounded-t-lg">
               <div className="flex w-full h-full bg-slate-200 rounded-l-lg rounded-tr-lg items-center p-1">
-                <p className="w-full text-black text-xl sm:text-3xl font-semibold">
+                <p className="w-full text-black text-lg sm:text-3xl font-semibold">
                   {characterDetails.name}
                 </p>
               </div>
@@ -43,11 +43,11 @@ const CharacterDetailsContainer = ({
               <div className="bg-slate-200 w-full  md:w-2/6 h-full rounded-l-lg">
                 <div className="flex w-full h-full flex-col pb-[5px] bg-black rounded-bl-lg md:rounded-none">
                   <div className="flex w-full h-14 bg-slate-200 rounded-tl-lg place-content-center pt-2">
-                    <div className="flex w-2/5 md:w-3/4 bg-black rounded-3xl  items-center justify-center px-[5px] py-[3px]">
+                    <div className="flex w-3/5 sm:w-2/5 md:w-3/4 bg-black rounded-3xl  items-center justify-center md:px-[5px] py-[3px]">
                       <div
                         className={`flex w-full h-full ${STATUS_COLORS[status]} rounded-3xl  items-center justify-center`}
                       >
-                        <p className="text-2xl text-black">
+                        <p className="text-lg md:text-2xl text-black m-0 sm:p-1">
                           {characterDetails.status}
                         </p>
                       </div>
@@ -64,16 +64,16 @@ const CharacterDetailsContainer = ({
                         labelDescription={characterDetails.gender}
                       />
                       <LabelDescription
-                        labelName="Type"
-                        labelDescription={characterDetails.type}
-                      />
-                      <LabelDescription
                         labelName="Origin"
                         labelDescription={characterDetails.origin.name}
                       />
                       <LabelDescription
                         labelName="Location"
                         labelDescription={characterDetails.location.name}
+                      />
+                      <LabelDescription
+                        labelName="Type"
+                        labelDescription={characterDetails.type}
                       />
                     </div>
                   </div>
