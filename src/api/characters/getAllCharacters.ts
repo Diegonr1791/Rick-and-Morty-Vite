@@ -1,5 +1,6 @@
 import axios from "axios";
 import { AllCharactersAPI } from "./interfaces";
+import { Filters } from "@/components/FilterBar/interfaces";
 
 const RICK_AND_MORTY_API =
   import.meta.env.RICK_AND_MORTY_API || "https://rickandmortyapi.com/api/";
@@ -7,17 +8,19 @@ const DEFAULT_CHARACTERS_ERROR_MESSAGE = "Error fetching characters";
 
 export const getAllCharacters = async ({
   pageParam,
+  filters,
 }: {
   pageParam: number;
+  filters: Filters;
 }) => {
-  const url = `${RICK_AND_MORTY_API}/character/?page=${pageParam}`;
+  let url = `${RICK_AND_MORTY_API}character/?page=${pageParam}`;
 
-  /*    Object.keys(filters).forEach((property) => {
-      const key = property as keyof any;
-      if (filters[key]) {
-        url = url.concat(`&${key}=${filters[key]}`);
-      }
-    });  */
+  Object.keys(filters).forEach((property) => {
+    const key = property as keyof Filters;
+    if (filters[key]) {
+      url = url.concat(`&${key}=${filters[key]}`);
+    }
+  });
 
   const response = await axios<AllCharactersAPI>(url);
 

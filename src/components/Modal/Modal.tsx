@@ -21,7 +21,7 @@ const ModalComponent = ({
       closeButton={<CloseButton onClose={onClose} />}
       placement="center"
     >
-      <ModalContent className="flex w-2/3">
+      <ModalContent className="flex  w-full xs:w-2/3">
         <div>{children}</div>
       </ModalContent>
     </Modal>
