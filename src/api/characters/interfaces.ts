@@ -39,6 +39,11 @@ export interface Location {
 export enum Species {
   Alien = "Alien",
   Human = "Human",
+  Humanoid = "Humanoid",
+  MythologicalCreature = "Mythological Creature",
+  Poopybutthole = "Poopybutthole",
+  Robot = "Robot",
+  Unknown = "unknown",
 }
 
 export enum Status {

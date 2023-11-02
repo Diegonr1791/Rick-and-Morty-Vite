@@ -1,4 +1,4 @@
-import Ship from "@/assets/ship2.png";
+import Ship from "@/assets/Home/ship.png";
 import { Button } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
